@@ -4,14 +4,14 @@ import Home from "./Pages/Main/Home";
 import About from "./Pages/Main/About";
 import Products from "./Pages/Main/Products";
 import Contact from "./Pages/Main/Contact";
-// import SingleProduct from "./Pages/Main/SingleProduct";
+import SingleProduct from "./Pages/Main/SingleProduct";
 import Cart from "./Pages/Main/Cart";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
-// import Header from "./Components/Header";
-// import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import Err404 from "./ErrorPage";
-// import ScrollUp from "./Components/ScrollUp";
+import ScrollUp from "./Components/ScrollUp";
 
 const App = () => {
   const theme = {
@@ -41,18 +41,18 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
-        {/* <Header /> */}
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/singleproduct/:id" element={<SingleProduct />} /> */}
+          <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Err404 />} />
         </Routes>
-        {/* <ScrollUp /> */}
-        {/* <Footer /> */}
+        <ScrollUp />
+        <Footer />
       </Router>
     </ThemeProvider>
   );

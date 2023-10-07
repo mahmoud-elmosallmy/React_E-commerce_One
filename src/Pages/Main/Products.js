@@ -1,28 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-// import FilterSection from "../../Components/FilterSection";
-// import Sort from "../../Components/Sort";
-// import ProductList from "../../Components/ProductList";
-// import { useProductContext } from "../../Context/ProductContext";
-// import LoadingSubmit from "../../Components/Loading";
+import FilterSection from "../../Components/FilterSection";
+import Sort from "../../Components/Sort";
+import ProductList from "../../Components/ProductList";
+import { useProductContext } from "../../Context/ProductContext";
+import LoadingSubmit from "../../Components/Loading";
 
 const Products = () => {
-  // const {isLoading} = useProductContext();
-  // if (isLoading) {
-    // return <LoadingSubmit />
-// }
+  const {isLoading} = useProductContext();
+  if (isLoading) {
+    return <LoadingSubmit />
+}
   return (
     <Wrapper>
       <div className="container grid grid-filter-column">
         <div>
-          {/* <FilterSection /> */}
+          <FilterSection />
         </div>
         <section className="product-view--sort">
           <div className="sort-filter">
-            {/* <Sort /> */}
+            <Sort />
           </div>
           <div className="main-product">
-            {/* <ProductList /> */}
+            <ProductList />
           </div>
         </section>
       </div>
