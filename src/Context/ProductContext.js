@@ -4,7 +4,7 @@ import reducer from '../Reducer/ProductReducer';
 
 const AppContext = createContext()
 
-const API = "https://db-e-commerce-one.onrender.com/productdata";
+const API = "https://db-e-commerce-one.onrender.com/productdata/";
 // const API = "https://api.pujakaitem.com/api/products";
 
 function AppProvider({children}) {
