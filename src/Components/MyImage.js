@@ -2,19 +2,25 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const MyImage = ({ imgs = [{ url: "" }] }) => {
-  const [mainImage, setMainImage] = useState(imgs[0]);
-
+  // console.log(imgs);
+  const [mainImage, setMainImage] = useState(imgs[0].url);
+  // console.log(mainImage);
+  // console.log(mainImage.url);
+  // setMainImage(imgs[0]);
+  // console.log(imgs);
+  
   return (
     <Wrapper>
       <div className="grid grid-four-column">
-        {imgs.map((curElm, index) => {
+        { imgs.length > 0 && imgs.map((curElm, index) => {
+          // console.log(curElm.url);
           return (
-            <figure key={index}>
+            <figure key={index} style={{width: "100px" }}>
               <img
                 src={curElm.url}
-                alt={curElm.filename}
+                alt={"curElm.filename"}
                 className="box-image--style"
-                onClick={() => setMainImage(curElm)}
+                onClick={() => setMainImage(curElm.url)}
               />
             </figure>
           );
@@ -23,7 +29,7 @@ const MyImage = ({ imgs = [{ url: "" }] }) => {
       {/* 2nd column  */}
 
       <div className="main-screen">
-        <img src={mainImage.url} alt={mainImage.filename} />
+        <img src={mainImage} alt='Foo ' />
       </div>
     </Wrapper>
   );

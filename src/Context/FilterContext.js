@@ -45,14 +45,15 @@ export const FilterContextProvider = ({children}) => {
     const updateFilterValue = (event) => {
         let name = event.target.name;
         let value = event.target.value;
-        // console.log(name);
-        // console.log(value);
+        console.log(name);
+        console.log(value);
         return dispatch({type: "UPDATE_FILTER_VALUE",payload: {name,value}})
     }
     // to Clear Filter
     const clearFilters = () => {
         return dispatch({type: "CLEAR_FILTER"})
     }
+
     // To Sort The Products
     useEffect(() => {
         dispatch({type: "FILTER_PRODUCTS"})

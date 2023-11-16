@@ -104,30 +104,30 @@ li {
   grid-template-columns: repeat(5, 1fr);
 }
 
-  .common-heading {
-      font-size: 3.8rem;
-      font-weight: 600;
-      margin-bottom: 6rem;
-      text-transform: capitalize;
-    }
+.common-heading {
+  font-size: 3.8rem;
+  font-weight: 600;
+  margin-bottom: 6rem;
+  text-transform: capitalize;
+}
 
-    .intro-data {
-    margin-bottom: 0;
-    text-transform: uppercase;
-    color: #5138ee;
-  }
+.intro-data {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #5138ee;
+}
 
-  .caption {
-    position: absolute;
-    top: 15%;
-    right: 10%;
-    text-transform: uppercase;
-    background-color: ${({ theme }) => theme.colors.bg};
-    color: ${({ theme }) => theme.colors.helper};
-    padding: 0.8rem 2rem;
-    font-size: 1.2rem;
-    border-radius: 2rem;
-  }
+.caption {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  text-transform: uppercase;
+  background-color: ${({ theme }) => theme.colors.bg};
+  color: ${({ theme }) => theme.colors.helper};
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+}
 
 input, textarea{
     max-width: 50rem;

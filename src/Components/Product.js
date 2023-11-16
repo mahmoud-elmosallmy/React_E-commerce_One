@@ -3,22 +3,24 @@ import FormatPrice from "../Helpers/FormatPrice";
 
 function Product(curElem) {
     const {id , name , image , price , category } = curElem;
-  return (
-    <NavLink to={`/singleproduct/${id}`}>
-        <div className="card">
-            <figure>
-                <img src={image} alt={name} />
-                <figcaption className="caption">{category}</figcaption>
-            </figure>
-            <div className="card-data">
-                <div className="card-data-flex">
-                    <h3>{name}</h3>
-                    <p className="card-data--price">{<FormatPrice price={price} />}</p>
+    console.log(image[0].url);
+    return (
+        <NavLink to={`/singleproduct/${id}`}>
+            <div className="card">
+                <figure>
+                    {/* <img src={image} alt={name} /> */}
+                    <img src={image[0].url} alt={name} />
+                    <figcaption className="caption">{category}</figcaption>
+                </figure>
+                <div className="card-data">
+                    <div className="card-data-flex">
+                        <h3>{name}</h3>
+                        <p className="card-data--price">{<FormatPrice price={price} />}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </NavLink>
-  )
+        </NavLink>
+    )
 }
 
 export default Product

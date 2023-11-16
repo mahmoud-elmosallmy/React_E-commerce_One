@@ -1,12 +1,17 @@
 import axios from 'axios';
-import { createContext, useContext, useEffect, useReducer } from 'react'
+import { createContext, useContext, useEffect, useReducer, useState } from 'react'
 import reducer from '../Reducer/ProductReducer';
 
 const AppContext = createContext()
 
-const API = "https://api.pujakaitem.com/api/products";
+const API = "http://localhost:9000/productdata/";
+// const API = "https://api.pujakaitem.com/api/products";
 
 function AppProvider({children}) {
+
+  const [numId, setNumId] = useState([])
+
+  console.log(API);
 
   const initialAuthState = {
     isLoading: false,
@@ -14,16 +19,17 @@ function AppProvider({children}) {
     products: [],
     featureProducts: [],
     isSingleLoading: false,
-    singleProduct: {},
+    singleProduct: [],
   }
 
   const [state , dispatch] = useReducer(reducer,initialAuthState);
 
-  const gitProducts = async (url) => {
+  const getProducts = async (url) => {
     dispatch({type: "SET_LOADING"})
     try {
       const res = await axios.get(url)
       const products = await res.data;
+      // console.log(products);
       dispatch({type: "SET_MY_API_DATA", payload: products })
     }catch(error) {
       dispatch({type: "API_ERROR"})
@@ -37,21 +43,22 @@ function AppProvider({children}) {
     try{
       const res = await axios.get(`${url}`)
       const singleProduct = await res.data;
+      // console.log(singleProduct);
       dispatch({type: "SET_SINGLE_PRODUCT", payload: singleProduct })
-      // console.log(products);
     } catch (error) {
       dispatch({type: "SET_SINGLE_ERROR"})
     }
   }
 
   useEffect(() => {
-    gitProducts(API)
-  },[])
+    getProducts(API)
+    gitSingleProduct(`${API}${numId}`)
+  },[ numId])
 
   
   // console.log(state);
   return (
-    <AppContext.Provider value={{...state , gitSingleProduct}}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{...state , gitSingleProduct , setNumId }}>{children}</AppContext.Provider>
   )
 };
 

@@ -8,11 +8,13 @@ import { useCartContext } from '../Context/CartContext';
 
 function AddToCart({ product }) {
 
+    console.log(product);
     const { AddToCart } = useCartContext();
 
     const { id , colors , stock } = product;
-    // console.log(stock);
+    console.log(stock);
     const [color,setColor] = useState(colors[0])
+    console.log(color);
     const [amount,setAmount] = useState(1)
 
     const setDecrease = () => {
@@ -29,6 +31,7 @@ function AddToCart({ product }) {
             <p>
                 Colors:
                 {colors.map((curColor , index) => {
+                  console.log(curColor);
                     return (
                         <button 
                             key={index} 
@@ -49,6 +52,7 @@ function AddToCart({ product }) {
         <NavLink 
           to='/cart'
           onClick={() => AddToCart(id , color , amount , product)}
+          // onClick={() => AddToCart( product)}
         >
             <Button className='btn'>Add To Cart</Button>
         </NavLink>

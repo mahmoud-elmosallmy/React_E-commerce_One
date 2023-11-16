@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useProductContext } from "../../Context/ProductContext";
-// import { useEffect } from "react";
 import PageNavigation from "../../Components/PageNavigation";
 import LoadingSubmit from "../../Components/Loading";
 import MyImage from "../../Components/MyImage";
@@ -14,16 +13,16 @@ import AddToCart from "../../Components/AddToCart";
 
 
 // const API = "https://api.pujakaitem.com/api/products"
-
+// const API = "http://localhost:9000/productdata"
+// console.log(API);
 const SingleProduct = () => {
-  const {
-    // gitSingleProduct ,
-     isSingleLoading , singleProduct} = useProductContext();
+  const { isSingleLoading , singleProduct , setNumId} = useProductContext();
   
   const { id } = useParams();
+  setNumId(id)
   
-  const { 
-          // id: alias ,
+  const {
+          // id: alias,
           name ,
           company ,
           description ,
@@ -34,9 +33,14 @@ const SingleProduct = () => {
           image
         } = singleProduct;
 
+        console.log(singleProduct);
+        console.log(typeof singleProduct === "object");
+        console.log(name);
+        // console.log(singleProduct[0].name);
+
   // useEffect(() => {
   //   gitSingleProduct(`${API}?id=${id}`)
-  // },[])
+  // },[ id])
 
   if (isSingleLoading) {
     return <LoadingSubmit />
@@ -59,7 +63,7 @@ const SingleProduct = () => {
             <p className="product-data-price">
               MRP:
               <del>
-                <FormatPrice price={price + 250000} />
+                <FormatPrice price={price + 4} />
               </del>
             </p>
             <p className="product-data-price product-data-real-price">
@@ -100,7 +104,7 @@ const SingleProduct = () => {
               </p>
             </div>
             <hr />
-           {stock > 0 && <AddToCart product={singleProduct} />} 
+          {(typeof singleProduct === "object") && stock > 0 && <AddToCart product={singleProduct} />} 
           </div>
         </div> 
       </Container>
@@ -108,7 +112,7 @@ const SingleProduct = () => {
   )
 };
 const Wrapper = styled.section`
-  padding: 12rem 2rem;
+  padding: 1rem 2rem;
   .container {
     padding: 9rem 0;
   }
