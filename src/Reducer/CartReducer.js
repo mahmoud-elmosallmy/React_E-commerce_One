@@ -6,15 +6,11 @@ function CartReducer(state , action) {
         let cartProduct;
 
         let existingProduct = state.cart.find((curItem) => curItem.id === id + color)
-        console.log(existingProduct);
 
         if (existingProduct) {
           let updatedCart = state.cart.map((ele) => {
-            console.log(ele);  
             if (ele.id === id + color) {
               let newAmount = ele.amount + amount
-              console.log(newAmount);
-              console.log(ele.max);
               if (newAmount >= ele.max) {
                 newAmount = ele.max
               }
@@ -79,10 +75,7 @@ function CartReducer(state , action) {
         })
         return { ...state, cart: incUpdatedProduct}
       case "REMOVE_ITEM":
-        // const { id } = action.payload;
-        console.log(action.payload);
         const removeItem = state.cart.filter((ele) => !(ele.id === action.payload))
-        console.log(removeItem);
         return {
           ...state,
           cart: removeItem,  

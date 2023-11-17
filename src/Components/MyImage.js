@@ -2,18 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const MyImage = ({ imgs = [{ url: "" }] }) => {
-  // console.log(imgs);
   const [mainImage, setMainImage] = useState(imgs[0].url);
-  // console.log(mainImage);
-  // console.log(mainImage.url);
-  // setMainImage(imgs[0]);
-  // console.log(imgs);
   
   return (
     <Wrapper>
       <div className="grid grid-four-column">
         { imgs.length > 0 && imgs.map((curElm, index) => {
-          // console.log(curElm.url);
           return (
             <figure key={index} style={{width: "100px" }}>
               <img
@@ -46,7 +40,6 @@ const Wrapper = styled.section`
     align-items: center;
     width: 100%;
     gap: 1rem;
-    /* order: 2; */
 
     img {
       max-width: 100%;

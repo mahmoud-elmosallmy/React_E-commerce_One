@@ -9,7 +9,6 @@ function Services() {
 
     <Wrapper>
       <div className='container'>
-
         <div className='grid grid-three-column'>
           <div className='services-1'>
             <div>

@@ -19,7 +19,6 @@ function FilterSection() {
       return curElem[property]
     })
     if (property === "colors") {
-      // return (newVal = ["all" , ...new Set([].concat(...newVal))])
       newVal = newVal.flat()
     } 
     return (newVal = ["all" , ...new Set(newVal)])

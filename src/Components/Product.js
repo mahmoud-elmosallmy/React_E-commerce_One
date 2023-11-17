@@ -3,7 +3,6 @@ import FormatPrice from "../Helpers/FormatPrice";
 
 function Product(curElem) {
     const {id , name , image , price , category } = curElem;
-    console.log(image[0].url);
     return (
         <NavLink to={`/singleproduct/${id}`}>
             <div className="card">

@@ -5,13 +5,10 @@ import reducer from '../Reducer/ProductReducer';
 const AppContext = createContext()
 
 const API = "https://db-e-commerce-one.onrender.com/productdata/";
-// const API = "https://api.pujakaitem.com/api/products";
 
 function AppProvider({children}) {
 
   const [numId, setNumId] = useState([])
-
-  console.log(API);
 
   const initialAuthState = {
     isLoading: false,
@@ -29,7 +26,6 @@ function AppProvider({children}) {
     try {
       const res = await axios.get(url)
       const products = await res.data;
-      // console.log(products);
       dispatch({type: "SET_MY_API_DATA", payload: products })
     }catch(error) {
       dispatch({type: "API_ERROR"})
@@ -43,7 +39,6 @@ function AppProvider({children}) {
     try{
       const res = await axios.get(`${url}`)
       const singleProduct = await res.data;
-      // console.log(singleProduct);
       dispatch({type: "SET_SINGLE_PRODUCT", payload: singleProduct })
     } catch (error) {
       dispatch({type: "SET_SINGLE_ERROR"})
@@ -55,9 +50,7 @@ function AppProvider({children}) {
     gitSingleProduct(`${API}${numId}`)
   },[ numId])
 
-  
-  // console.log(state);
-  return (
+    return (
     <AppContext.Provider value={{...state , gitSingleProduct , setNumId }}>{children}</AppContext.Provider>
   )
 };

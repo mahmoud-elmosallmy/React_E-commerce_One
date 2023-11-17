@@ -5,9 +5,8 @@ import { useCartContext } from '../Context/CartContext'
 
 function CartItem({id , color , amount , price , name , image }) {
     const { removeItem ,setDecrease ,setIncrease} = useCartContext();    
-    console.log(amount);
 
-  return (
+return (
     <div className="cart_heading grid grid-five-column">
         <div className='cart-image--name'>
             <div>

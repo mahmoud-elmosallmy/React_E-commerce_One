@@ -42,8 +42,6 @@ function ProductReducer(state,action) {
                 isSingleLoading: true,
             }
         case "SET_SINGLE_PRODUCT":
-            // let products = action.payload[0];
-            // console.log(products);
             return {
                 ...state,
                 isSingleLoading: false,
@@ -58,10 +56,6 @@ function ProductReducer(state,action) {
         default:
             return state;
     }
-
-    // return (
-    //     state
-    // )
 }
 
 export default ProductReducer

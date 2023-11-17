@@ -11,10 +11,6 @@ import {MdSecurity} from "react-icons/md";
 import Star from "../../Components/Star";
 import AddToCart from "../../Components/AddToCart";
 
-
-// const API = "https://api.pujakaitem.com/api/products"
-// const API = "http://localhost:9000/productdata"
-// console.log(API);
 const SingleProduct = () => {
   const { isSingleLoading , singleProduct , setNumId} = useProductContext();
   
@@ -22,7 +18,6 @@ const SingleProduct = () => {
   setNumId(id)
   
   const {
-          // id: alias,
           name ,
           company ,
           description ,
@@ -32,15 +27,6 @@ const SingleProduct = () => {
           reviews ,
           image
         } = singleProduct;
-
-        console.log(singleProduct);
-        console.log(typeof singleProduct === "object");
-        console.log(name);
-        // console.log(singleProduct[0].name);
-
-  // useEffect(() => {
-  //   gitSingleProduct(`${API}?id=${id}`)
-  // },[ id])
 
   if (isSingleLoading) {
     return <LoadingSubmit />

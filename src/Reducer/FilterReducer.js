@@ -78,7 +78,6 @@ function FilterReducer(state,action) {
                     return curElem.category === category
                 });
             }
-            // console.log(temFilterProduct);
             if (company !== "all") {
                 temFilterProduct = temFilterProduct.filter((curElem) => {
                     console.log(curElem.company);
@@ -104,7 +103,6 @@ function FilterReducer(state,action) {
                 filter_products: temFilterProduct,
             }
         case "CLEAR_FILTER":
-            // console.log(state.filters.maxPrice);
             return {
                 ...state,
                 filters: {
@@ -115,7 +113,6 @@ function FilterReducer(state,action) {
                     color: "all",
                     maxPrice: state.filters.maxPrice,
                     price: state.filters.maxPrice,
-                    // minPrice: state.filters.maxPrice,
                 }
             }
         
